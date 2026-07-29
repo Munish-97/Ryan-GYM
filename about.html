@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | THE RYAN GYM</title>
+  <meta name="description" content="Learn about THE RYAN GYM philosophy. We focus on discipline, strength, and providing the best training environment in Mubarikpur.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Intro Section Specifics */
+    .intro-section {
+      padding: 100px 0;
+    }
+    .intro-split {
+      grid-template-columns: 47fr 53fr;
+      gap: 70px;
+    }
+    .intro-label {
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+    .intro-heading {
+      margin-bottom: 26px;
+    }
+    .intro-p1 {
+      margin-bottom: 14px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .intro-p2 {
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .intro-features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #eaeaea;
+      font-size: 1rem;
+    }
+    .feature-icon {
+      color: var(--accent-yellow);
+      font-size: 1.2rem;
+    }
+    .intro-cta {
+      display: flex;
+      gap: 12px;
+    }
+    .intro-cta .btn {
+      padding: 14px 28px;
+      font-size: 0.95rem;
+    }
+    
+    .intro-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 530px; /* Ensures visual balance with left content */
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .intro-image-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.38));
+      z-index: 1;
+    }
+    .intro-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+      z-index: 0;
+    }
+    .intro-image-accent {
+      position: absolute; bottom: 0; right: 0;
+      width: 60px; height: 4px;
+      background: var(--accent-yellow);
+      z-index: 2;
+    }
+    
+    @media (max-width: 992px) {
+      .intro-split { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .intro-image-wrapper { height: 400px; }
+    }
+    @media (max-width: 768px) {
+      .intro-split { grid-template-columns: 1fr; }
+      .intro-image-wrapper { height: 280px; }
+      .intro-cta { flex-direction: column; }
+      .intro-cta .btn { width: 100%; text-align: center; }
+    }
+
+    .phil-top-img { height: 420px; }
+    .phil-bottom-img { height: 340px; }
+    
+    .timing-premium-panel {
+      background: rgba(8, 8, 8, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      padding: 80px 70px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      position: relative;
+    }
+    .timing-premium-panel::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%; height: 80%;
+      background: radial-gradient(circle, rgba(234, 191, 38, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    @media (max-width: 992px) {
+      .phil-top-img { height: 320px; }
+      .phil-bottom-img { height: 260px; }
+      .timing-premium-panel { padding: 60px 40px; }
+    }
+    @media (max-width: 768px) {
+      .phil-top-img { height: 280px; }
+      .phil-bottom-img { height: 240px; }
+      .timing-premium-panel { padding: 45px 25px; }
+    }
+    
+    .philosophy-list {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .phil-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 30px;
+      border-top: 1px solid var(--border-muted);
+      padding-top: 40px;
+    }
+    .phil-number {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      color: var(--accent-yellow);
+      line-height: 1;
+    }
+    
+    .timing-panel {
+      background-color: var(--bg-elevated);
+      padding: 60px;
+      border: 1px solid var(--border-muted);
+      text-align: center;
+    }
+    .timing-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 20px 0;
+      font-size: 1.2rem;
+    }
+    .timing-row:last-child { border-bottom: none; }
+    
+    
+    
+    
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+    <!-- Page Hero -->
+  <section class="page-hero">
+    <img src="assets/images/gym-image-12.JPG" alt="The Ryan Gym" class="page-hero-bg" fetchpriority="high">
+    <div class="page-hero-overlay"></div>
+    <div class="container reveal page-hero-content">
+      <span class="page-hero-label">ABOUT THE RYAN GYM</span>
+      <h1 class="page-hero-heading">BUILT FOR STRENGTH.<br>DRIVEN BY <span style="color: var(--accent-yellow);">DISCIPLINE.</span></h1>
+      <p class="page-hero-desc">A focused fitness destination in Mubarikpur, created for serious training, personal growth and lasting transformation.</p>
+    </div>
+  </section>
+
+  <!-- Introduction Split -->
+  <section class="section intro-section">
+    <div class="container split-layout intro-split">
+      <div class="split-content reveal">
+        <span class="label-small intro-label">01 / OUR ENVIRONMENT</span>
+        <h2 class="heading-lg intro-heading">A PURE<br>TRAINING SPACE</h2>
+        <p class="text-body intro-p1">The Ryan Gym was created for people who expect more from their training environment. Our focused atmosphere, quality equipment and disciplined culture give every member the space to train seriously, build confidence and make lasting progress.</p>
+        <p class="text-body intro-p2">Whether you are beginning your fitness journey or working toward a higher level of performance, you will find the equipment, guidance and motivation needed to move forward.</p>
+        
+        <div class="intro-features">
+          <div class="feature-item"><i class="bi bi-check2 feature-icon"></i> Focused Training Environment</div>
+          <div class="feature-item"><i class="bi bi-check2 feature-icon"></i> Quality Strength Equipment</div>
+          <div class="feature-item"><i class="bi bi-check2 feature-icon"></i> Supportive Fitness Community</div>
+        </div>
+        
+        <div class="intro-cta">
+          <a href="tel:+917018290692" class="btn btn-primary">CALL NOW</a>
+          <a href="contact.html" class="btn btn-outline">CONTACT US</a>
+        </div>
+      </div>
+      <div class="split-image reveal reveal-delay-1 intro-image-wrapper">
+        <div class="intro-image-overlay"></div>
+        <img src="assets/images/gym-image-45.jpg" alt="The Ryan Gym Interior" class="editorial-img intro-img" loading="lazy">
+        <div class="intro-image-accent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="section bg-secondary" style="position: relative; overflow: hidden; background-color: #030303;">
+    <!-- Abstract Animated Background -->
+    <div class="footer-bg-anim" style="z-index: 0;">
+      <div class="footer-glow-1"></div>
+      <div class="footer-glow-2"></div>
+      <div class="footer-grid-overlay"></div>
+      <div class="footer-noise"></div>
+    </div>
+    <div class="container" style="position: relative; z-index: 10;">
+      <div class="split-layout reverse">
+        <div class="split-content reveal">
+          <span class="label-small">OUR PILLARS</span>
+          <h2 class="heading-lg">WHAT WE<br>STAND FOR</h2>
+          
+          <div class="philosophy-list">
+            <div class="phil-item">
+              <div class="phil-number">01</div>
+              <div>
+                <h3 class="heading-md" style="margin-bottom: 10px;">DISCIPLINE</h3>
+                <p class="text-body">Motivation is temporary, but discipline is permanent. We encourage our members to show up, do the work, and build habits that last a lifetime.</p>
+              </div>
+            </div>
+            
+            <div class="phil-item">
+              <div class="phil-number">02</div>
+              <div>
+                <h3 class="heading-md" style="margin-bottom: 10px;">CONSISTENCY</h3>
+                <p class="text-body">Transformation doesn't happen overnight. Success is the sum of small, focused efforts repeated day in and day out.</p>
+              </div>
+            </div>
+            
+            <div class="phil-item">
+              <div class="phil-number">03</div>
+              <div>
+                <h3 class="heading-md" style="margin-bottom: 10px;">STRENGTH</h3>
+                <p class="text-body">Physical strength translates directly to mental resilience. We prioritize functional strength and proper mechanics over shortcuts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="split-image reveal reveal-delay-1" style="align-self: start; display: flex; flex-direction: column; gap: 24px;">
+          <!-- Top Image -->
+          <div class="phil-top-img" style="position: relative; border-radius: 2px; overflow: hidden; width: 100%;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.45)); z-index: 1;"></div>
+            <img src="assets/images/gym-image-30.jpg" alt="Member Training" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: absolute; top: 0; left: 0; z-index: 0;">
+            <!-- Subtle accent border -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid rgba(255,255,255,0.08); z-index: 2; pointer-events: none;"></div>
+          </div>
+          
+          <!-- Bottom Image -->
+          <div class="phil-bottom-img" style="position: relative; border-radius: 2px; overflow: hidden; width: 100%;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.45)); z-index: 1;"></div>
+            <img src="assets/images/gym-image-68.jpg" alt="Premium Gym Equipment" style="width: 100%; height: 100%; object-fit: cover; object-position: center; position: absolute; top: 0; left: 0; z-index: 0;">
+            <!-- Subtle accent line -->
+            <div style="position: absolute; bottom: 0; right: 0; width: 40px; height: 3px; background: var(--accent-yellow); z-index: 2;"></div>
+            <!-- Subtle accent border -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid rgba(255,255,255,0.08); z-index: 2; pointer-events: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Environment -->
+  <section class="section">
+    <div class="container split-layout">
+      <div class="split-image reveal">
+        <img src="assets/images/gym-image-53.jpg" alt="Equipment and Environment" class="editorial-img" loading="lazy">
+      </div>
+      <div class="split-content reveal reveal-delay-1">
+        <span class="label-small">THE FACILITY</span>
+        <h2 class="heading-lg">BUILT FOR<br>RESULTS</h2>
+        <p class="text-body">Whether you are a beginner learning the basics or an experienced athlete pushing your limits, you will find the right support, heavy-duty equipment, and respect here.</p>
+        <p class="text-body">Our floors are organized intuitively to separate heavy lifting zones from cardio and functional areas, ensuring you always have the space you need to execute your routine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timings & Contact -->
+  <section class="section" style="position: relative; padding: 120px 0; overflow: hidden; display: flex; align-items: center;">
+    <!-- Cinematic Background -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0.85) 100%), rgba(0,0,0,0.45); z-index: 1;"></div>
+      <img src="assets/images/gym-image-60.jpg" alt="Ryan Gym Atmosphere" style="width: 100%; height: 100%; object-fit: cover; object-position: center; position: relative; z-index: 0;">
+    </div>
+    
+    <div class="container reveal" style="position: relative; z-index: 10; max-width: 850px;">
+      <div class="timing-premium-panel">
+        <span class="label-small" style="color: var(--accent-yellow); margin-bottom: 16px; display: inline-block;">VISIT US</span>
+        <h2 class="heading-lg" style="color: #ffffff; margin-bottom: 45px; text-transform: uppercase;">OPENING HOURS</h2>
+        
+        <div style="max-width: 540px; margin: 0 auto 45px;">
+          <div class="timing-row" style="border-bottom: 1px solid rgba(255,255,255,0.12); padding: 22px 0;">
+            <span style="color: rgba(255,255,255,0.7); font-size: 0.95rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">MORNING SESSION</span>
+            <span style="font-family: var(--font-heading); color: #ffffff; font-size: 1.35rem; letter-spacing: 1px; font-weight: 600;">4:00 AM — 11:00 AM</span>
+          </div>
+          <div class="timing-row" style="border-bottom: none; padding: 22px 0;">
+            <span style="color: rgba(255,255,255,0.7); font-size: 0.95rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;">EVENING SESSION</span>
+            <span style="font-family: var(--font-heading); color: #ffffff; font-size: 1.35rem; letter-spacing: 1px; font-weight: 600;">3:00 PM — 10:00 PM</span>
+          </div>
+        </div>
+        
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary" style="text-transform: uppercase; padding: 15px 32px;">GET DIRECTIONS</a>
+          <a href="tel:+917018290692" class="btn btn-outline" style="text-transform: uppercase; padding: 15px 32px;">CALL NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="site-footer" style="margin-top: 140px;"></div>
+
+  <script src="js/script.js"></script>
+  <script src="assets/js/layout.js"></script>
+</body>
+</html>

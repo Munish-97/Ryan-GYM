@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="metallicRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a4a4a" />
+      <stop offset="25%" stop-color="#1a1a1a" />
+      <stop offset="50%" stop-color="#555555" />
+      <stop offset="75%" stop-color="#111111" />
+      <stop offset="100%" stop-color="#333333" />
+    </linearGradient>
+
+    <radialGradient id="innerBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#222222" />
+      <stop offset="100%" stop-color="#050505" />
+    </radialGradient>
+    
+    <filter id="yellowGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Outer metallic rim -->
+  <circle cx="200" cy="200" r="190" fill="url(#metallicRim)" />
+  <circle cx="200" cy="200" r="186" fill="none" stroke="#000" stroke-width="4" />
+  
+  <!-- Inner charcoal background with glowing yellow ring -->
+  <circle cx="200" cy="200" r="170" fill="url(#innerBg)" stroke="#E0BE16" stroke-width="4" filter="url(#yellowGlow)"/>
+
+  <!-- Inner thin accent rings -->
+  <circle cx="200" cy="200" r="154" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+  <circle cx="200" cy="200" r="162" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+
+  <!-- Dumbbell Icon -->
+  <g fill="#FFFFFF" transform="translate(200, 115)">
+    <!-- center bar -->
+    <rect x="-35" y="-3" width="70" height="6" rx="2" />
+    <!-- inner plates -->
+    <rect x="-42" y="-22" width="12" height="44" rx="3" />
+    <rect x="30" y="-22" width="12" height="44" rx="3" />
+    <!-- outer plates -->
+    <rect x="-52" y="-14" width="10" height="28" rx="2" />
+    <rect x="42" y="-14" width="10" height="28" rx="2" />
+  </g>
+
+  <!-- Main Text -->
+  <text x="200" y="200" font-family="'Oswald', 'Impact', sans-serif" font-weight="700" font-size="64" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">RYAN GYM</text>
+
+  <!-- Yellow Separator -->
+  <path d="M 160 225 L 240 225" stroke="#E0BE16" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Secondary Text -->
+  <text x="200" y="260" font-family="'Inter', 'Arial', sans-serif" font-weight="600" font-size="20" fill="#E0BE16" text-anchor="middle" letter-spacing="6">FITNESS CENTER</text>
+  
+  <!-- Small Star Accents -->
+  <polygon points="90,250 92,254 96,256 92,258 90,262 88,258 84,256 88,254" fill="rgba(255,255,255,0.4)" />
+  <polygon points="310,250 312,254 316,256 312,258 310,262 308,258 304,256 308,254" fill="rgba(255,255,255,0.4)" />
+</svg>

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE RYAN GYM | Built By Discipline</title>
+  <meta name="description" content="THE RYAN GYM in Mubarikpur. A premium training environment for strength, fitness and lasting progress.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    /* --------------------------------------------------
+       HOMEPAGE SPECIFIC STYLES
+       -------------------------------------------------- */
+
+    /* 2. Full-Width Hero Section */
+    .hero {
+      position: relative;
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      padding-top: 160px;
+      padding-bottom: 100px;
+      overflow: hidden;
+    }
+    
+    .hero-bg-img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -2;
+      filter: none;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.82) 0%,
+        rgba(0, 0, 0, 0.72) 45%,
+        rgba(0, 0, 0, 0.58) 100%
+      );
+      z-index: -1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      padding-bottom: 40px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+    
+    .hero-details {
+      display: flex;
+      gap: 50px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+    }
+    
+    .detail-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .detail-block span:first-child { color: var(--accent-yellow); font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; }
+    .detail-block span:last-child { color: var(--text-primary); font-size: 1.05rem; margin-top: 5px; }
+    
+    @media (max-width: 1024px) {
+      .hero {
+        padding-top: 130px;
+      }
+      .hero-content { padding-top: 0; padding-bottom: 40px; }
+      .hero-details { flex-wrap: wrap; gap: 30px; }
+    }
+    @media (max-width: 576px) {
+      .hero {
+        padding-top: 115px;
+      }
+      .hero-buttons { flex-direction: column; }
+    }
+
+    /* 3. Moving Strip Marquee */
+    .statement-strip {
+      padding: 25px 0;
+      border-top: 1px solid var(--border-muted);
+      border-bottom: 1px solid var(--border-muted);
+      background-color: var(--bg-elevated);
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .marquee-content {
+      display: inline-block;
+      font-family: var(--font-heading);
+      letter-spacing: 5px;
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      animation: marquee 25s linear infinite;
+    }
+    .marquee-content span { margin: 0 40px; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    /* 4. Introduction Section (Asymmetric Story) */
+    .intro-panel {
+      position: relative;
+      height: 700px;
+      display: flex;
+      align-items: center;
+      background-color: #050505;
+      overflow: hidden;
+    }
+    .intro-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: 72% center; z-index: 0;
+    }
+    .intro-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(90deg, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.88) 42%, rgba(5,5,5,0.35) 75%, rgba(5,5,5,0.15) 100%);
+      z-index: 1;
+    }
+    .intro-fade-bottom {
+      position: absolute; bottom: 0; left: 0; width: 100%; height: 80px;
+      background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0) 100%);
+      z-index: 2;
+    }
+    .intro-container {
+      position: relative; z-index: 10;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .intro-content {
+      max-width: 560px;
+      padding-left: 25px;
+      border-left: 2px solid var(--accent-yellow);
+    }
+    .intro-eyebrow {
+      color: var(--accent-yellow);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .intro-heading {
+      font-family: var(--font-heading);
+      font-size: 72px;
+      line-height: 1.05;
+      margin-bottom: 25px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+    .intro-heading span {
+      display: block;
+      color: var(--accent-yellow);
+    }
+    .intro-text {
+      max-width: 540px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 30px;
+    }
+    .intro-labels {
+      display: flex;
+      gap: 15px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      font-weight: 500;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+    .intro-labels .dot { color: var(--accent-yellow); font-size: 1.2rem; }
+    
+    .btn-solid-yellow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--accent-yellow);
+      color: #000;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      padding: 14px 28px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn-solid-yellow:hover {
+      background-color: #fff;
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 1024px) {
+      .intro-heading { font-size: 56px; }
+      .intro-overlay { background: linear-gradient(90deg, rgba(5,5,5,0.98) 0%, rgba(5,5,5,0.9) 60%, rgba(5,5,5,0.4) 100%); }
+    }
+    @media (max-width: 768px) {
+      .intro-panel { height: auto; flex-direction: column; display: block; }
+      .intro-bg { position: relative; height: 350px; object-position: center; }
+      .intro-overlay { display: none; }
+      .intro-fade-bottom { display: none; }
+      .intro-container { background-color: #050505; padding: 60px 20px; }
+      .intro-content { max-width: 100%; border-left: none; padding-left: 0; }
+      .intro-heading { font-size: 42px; }
+      .intro-text { font-size: 16px; }
+      .intro-eyebrow::before { content: ''; display: inline-block; width: 30px; height: 2px; background: var(--accent-yellow); margin-right: 15px; vertical-align: middle; }
+    }
+
+    /* 5. Programs Preview Editorial */
+    .home-programs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 20px;
+    }
+    .hp-block {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px 30px;
+      border: 1px solid var(--border-muted);
+      text-decoration: none;
+    }
+    .hp-block::after {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.2) 60%, rgba(8,8,8,0.1) 100%);
+      z-index: 1;
+      transition: background 0.4s ease;
+    }
+    .hp-block:hover::after {
+      background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.4) 60%, rgba(8,8,8,0.2) 100%);
+    }
+    .hp-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+      transition: transform 0.8s ease;
+    }
+    .hp-block:hover .hp-bg { transform: scale(1.04); }
+    
+    .hp-content { position: relative; z-index: 2; width: 100%; }
+    .hp-content h3 { font-size: 1.8rem; margin-bottom: 5px; color: var(--text-primary); }
+    .hp-content p { font-family: var(--font-body); color: var(--accent-yellow); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    
+    /* 5. Home Gallery Marquee */
+    .gallery-marquee-wrapper {
+      display: flex;
+      overflow: hidden;
+      gap: 16px;
+      padding: 10px 0;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+    .gallery-marquee-group {
+      display: flex;
+      gap: 16px;
+      flex-shrink: 0;
+      animation: marquee 35s linear infinite;
+    }
+    .gallery-marquee-wrapper:hover .gallery-marquee-group {
+      animation-play-state: paused;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-100% - 16px)); }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-marquee-wrapper {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+      .gallery-marquee-group { animation: none; }
+      .gallery-marquee-group[aria-hidden="true"] { display: none; }
+    }
+
+    .hg-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.4s ease;
+    }
+    .hg-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      background: #050505;
+      display: block;
+      cursor: pointer;
+      aspect-ratio: 4 / 5;
+      width: 320px;
+      flex-shrink: 0;
+    }
+    .hg-item::after {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .hg-item:hover::after { opacity: 1; }
+    .hg-item:focus { outline: 2px solid var(--accent-yellow); outline-offset: 2px; }
+    .hg-item:hover .hg-img { transform: scale(1.03); }
+    
+    .btn-gallery-hover {
+      transition: all 0.3s ease;
+    }
+    .btn-gallery-hover:hover {
+      background-color: var(--accent-yellow);
+      color: #000;
+      border-color: var(--accent-yellow);
+    }
+    
+    @media (max-width: 992px) {
+      .hg-item { width: 280px; }
+    }
+    @media (max-width: 576px) {
+      .hg-item { width: 240px; }
+      .gallery-header { flex-direction: column; align-items: flex-start !important; gap: 20px; }
+    }
+
+    .hp-large { grid-column: 1 / 3; height: 500px; }
+    .hp-tall { grid-column: 3 / 4; grid-row: 1 / 3; height: 100%; }
+    .hp-small { height: 400px; }
+    
+    @media (max-width: 992px) {
+      .home-programs { grid-template-columns: 1fr 1fr; }
+      .hp-large { grid-column: 1 / -1; }
+      .hp-tall { grid-column: 1 / 2; grid-row: auto; height: 400px; }
+    }
+    @media (max-width: 576px) {
+      .home-programs { grid-template-columns: 1fr; }
+      .hp-tall { grid-column: 1 / -1; }
+    }
+
+    /* 6. Why Train With Us (Rich Layer) */
+    .why-rich {
+      position: relative;
+      padding: 120px 0;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+    .standards-moving-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('assets/images/gym-image-55.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+      will-change: transform;
+      animation: standardsMove 12s ease-in-out infinite alternate;
+      transform: translate3d(2%, 0, 0) scale(1.08);
+    }
+    .standards-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(8,8,8,0.92); z-index: 2;
+    }
+    .standards-content {
+      position: relative;
+      z-index: 10;
+    }
+    
+    @keyframes standardsMove {
+      0% { transform: translate3d(2%, 0, 0) scale(1.08); }
+      100% { transform: translate3d(-2%, 0, 0) scale(1.12); }
+    }
+    
+    @keyframes standardsMoveMobile {
+      0% { transform: translate3d(1%, 0, 0) scale(1.04); }
+      100% { transform: translate3d(-1%, 0, 0) scale(1.06); }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .standards-moving-bg { animation: none; transform: scale(1); }
+    }
+    
+    @media (max-width: 768px) {
+      .standards-moving-bg { animation: standardsMoveMobile 12s ease-in-out infinite alternate; }
+    }
+    
+    .why-list-premium {
+      border-top: 2px solid rgba(255,255,255,0.05);
+      margin-top: 20px;
+    }
+    .why-item-premium {
+      display: flex;
+      align-items: center;
+      padding: 35px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: padding-left var(--transition-fast);
+    }
+    .why-item-premium:hover {
+      padding-left: 20px;
+      border-bottom: 1px solid var(--accent-yellow);
+    }
+    .why-number-premium {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: rgba(224, 190, 22, 0.4);
+      width: 80px;
+      transition: color var(--transition-fast);
+    }
+    .why-item-premium:hover .why-number-premium { color: var(--accent-yellow); }
+    .why-title-premium {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 0;
+      color: var(--text-primary);
+    }
+    
+    @media (max-width: 768px) {
+      .why-item-premium { flex-direction: column; align-items: flex-start; padding: 25px 0; }
+      .why-item-premium:hover { padding-left: 0; }
+      .why-number-premium { font-size: 2rem; margin-bottom: 10px; }
+      .why-title-premium { font-size: 1.5rem; }
+    }
+
+    /* 7. Membership Preview Redesign */
+    .mem-preview-section {
+      position: relative;
+      padding: 140px 0;
+      background-color: #050505;
+      background-image: 
+        radial-gradient(circle at 75% 50%, rgba(224, 190, 22, 0.03) 0%, transparent 60%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .mem-preview-container {
+      position: relative; z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .mem-left-content {
+      position: relative;
+      padding-right: 40px;
+    }
+    .mem-left-content::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      width: 1px;
+      height: 80%;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+    .mem-left-text {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      max-width: 420px;
+      margin-bottom: 40px;
+    }
+    .btn-mem-view {
+      display: inline-block;
+      padding: 14px 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text-primary);
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+      letter-spacing: 1.5px;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-mem-view:hover {
+      background-color: var(--accent-yellow);
+      color: #000;
+      border-color: var(--accent-yellow);
+      transform: translateY(-2px);
+    }
+    
+    .mem-cards-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    .mem-card-premium {
+      background: rgba(15, 15, 15, 0.95);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      text-decoration: none;
+    }
+    .mem-card-premium::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+      background: rgba(255,255,255,0.1);
+      transition: background var(--transition-fast);
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .mem-card-premium:hover {
+      transform: translateY(-4px);
+      border-color: rgba(224, 190, 22, 0.3);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 20px rgba(224, 190, 22, 0.05);
+    }
+    .mem-card-premium:hover::before { background: var(--accent-yellow); }
+    
+    .mem-card-popular {
+      background: rgba(20, 20, 20, 1);
+      border-color: rgba(224, 190, 22, 0.25);
+    }
+    .mem-card-popular::before { background: var(--accent-yellow); }
+    
+    .mem-badge-popular {
+      background: var(--accent-yellow);
+      color: #000;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      padding: 4px 8px;
+      border-radius: 2px;
+      margin-left: 12px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    
+    .mem-card-title { font-size: 1.5rem; margin: 0; color: var(--text-primary); display: inline-block; }
+    .mem-card-popular .mem-card-title { color: var(--accent-yellow); }
+    .mem-card-subtitle { font-family: var(--font-body); font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-top: 6px; }
+    
+    .mem-enquire-link {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+    .mem-card-popular .mem-enquire-link { color: var(--accent-yellow); }
+    .mem-card-premium:hover .mem-enquire-link { color: var(--accent-yellow); }
+    
+    @media (max-width: 992px) {
+      .mem-preview-container { grid-template-columns: 1fr; gap: 50px; }
+      .mem-left-content { padding-right: 0; }
+      .mem-left-content::after { display: none; }
+      .mem-card-premium { padding: 25px; flex-direction: row; gap: 15px; }
+    }
+    @media (max-width: 576px) {
+      .mem-card-premium { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .btn-mem-view { width: 100%; text-align: center; }
+    }
+
+    /* 8. Final CTA Refinement */
+    .cta-hero {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .cta-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      z-index: -2;
+    }
+    .cta-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.76) 0%,
+        rgba(0, 0, 0, 0.62) 45%,
+        rgba(0, 0, 0, 0.68) 100%
+      );
+      z-index: -1;
+    }
+    .cta-content {
+      position: relative; z-index: 10;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    .cta-content h2 {
+      font-size: 5rem;
+      text-shadow: 0 20px 40px rgba(0,0,0,0.9);
+      margin-bottom: 20px;
+    }
+    @media (max-width: 768px) {
+      .cta-content h2 { font-size: 3.5rem; }
+    }
+  </style>
+</head>
+<body class="home-page">
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+  <!-- Full-Width Hero Section -->
+  <section class="hero">
+    <img src="assets/images/gym-image-38.jpg" alt="The Ryan Gym full interior view" class="hero-bg-img" fetchpriority="high">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content reveal">
+        <span class="label-small" style="margin-bottom: 20px; color: var(--accent-yellow);">MUBARIKPUR</span>
+        
+        <h1 class="heading-xl" style="text-shadow: 0 10px 20px rgba(0,0,0,0.8); margin-bottom: 5px;">THE <span style="color: var(--accent-yellow);">RYAN</span> GYM</h1>
+        <p class="owner-credit" style="font-family: var(--font-body); font-size: 14px; color: #b3b3b3; letter-spacing: 1.5px; margin-bottom: 25px; text-transform: none; font-weight: 400;">Owned by Lalit Sohal</p>
+        
+        <h2 style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--accent-yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; text-shadow: 0 4px 8px rgba(0,0,0,0.8);">BUILT BY DISCIPLINE.</h2>
+        
+        <p class="text-lead" style="margin-top: 0; font-size: 1.25rem; color: #E5E4DE; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">A focused training environment for strength, fitness and lasting progress.</p>
+        
+        <div class="hero-buttons">
+          <a href="training-programs.html" class="btn btn-primary" style="box-shadow: 0 4px 15px rgba(224, 190, 22, 0.3);">Explore Programs</a>
+          <a href="membership-plans.html" class="btn btn-outline" style="background: rgba(8,8,8,0.5); border-color: rgba(255,255,255,0.3);">Membership Details</a>
+        </div>
+        
+        <div class="hero-details">
+          <div class="detail-block">
+            <span>MORNING</span>
+            <span>4:00 AM — 11:00 AM</span>
+          </div>
+          <div class="detail-block">
+            <span>EVENING</span>
+            <span>3:00 PM — 10:00 PM</span>
+          </div>
+          <div class="detail-block">
+            <span>LOCATION</span>
+            <span>Mubarikpur · Una · HP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statement Strip Marquee -->
+  <div class="statement-strip">
+    <div class="marquee-content">
+      <span>STRENGTH</span><span>·</span>
+      <span>DISCIPLINE</span><span>·</span>
+      <span>CONSISTENCY</span><span>·</span>
+      <span>PROGRESS</span><span>·</span>
+      <span>STRENGTH</span><span>·</span>
+      <span>DISCIPLINE</span><span>·</span>
+      <span>CONSISTENCY</span><span>·</span>
+      <span>PROGRESS</span><span>·</span>
+      <span>STRENGTH</span><span>·</span>
+      <span>DISCIPLINE</span><span>·</span>
+      <span>CONSISTENCY</span><span>·</span>
+      <span>PROGRESS</span>
+    </div>
+  </div>
+
+  <!-- Introduction Section (Asymmetric Story) -->
+  <section class="intro-panel">
+    <img src="assets/images/gym-image-11.JPG" alt="Gym Community" class="intro-bg" loading="lazy">
+    <div class="intro-overlay"></div>
+    <div class="intro-fade-bottom"></div>
+    <div class="intro-container">
+      <div class="intro-content">
+        <span class="intro-eyebrow reveal">01 / OUR STORY</span>
+        <h2 class="intro-heading reveal reveal-delay-1">
+          MORE THAN<br>
+          <span>JUST A GYM</span>
+        </h2>
+        <p class="intro-text reveal reveal-delay-2">Located in the heart of Mubarikpur, The Ryan Gym is built for people who take their transformation seriously. Train with purpose, stay consistent and become stronger every day.</p>
+        <div class="intro-labels reveal reveal-delay-3">
+          STRENGTH <span class="dot">&bull;</span> DISCIPLINE <span class="dot">&bull;</span> RESULTS
+        </div>
+        <div class="reveal reveal-delay-4">
+          <a href="about.html" class="btn-solid-yellow">DISCOVER OUR STORY &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Preview Editorial -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;" class="reveal">
+        <span class="label-small">02. WHAT WE OFFER</span>
+        <h2 class="heading-lg" style="margin-bottom: 0;">TRAINING PROGRAMS</h2>
+      </div>
+      
+      <div class="home-programs">
+        <!-- I LOVE RYAN GYM Neon Sign Image -->
+        <a href="training-programs.html" class="hp-block hp-large reveal" style="background-color: #000;">
+          <img src="assets/images/gym-image-23.JPG" alt="Neon Sign Branding" class="hp-bg" loading="lazy" style="object-fit: contain; object-position: center;">
+          <div class="hp-content">
+            <p>01</p>
+            <h3>THE ENVIRONMENT</h3>
+          </div>
+        </a>
+        
+        <a href="training-programs.html" class="hp-block hp-tall reveal reveal-delay-2">
+          <img src="assets/images/gym-image-1.JPG" alt="Strength Training" class="hp-bg" loading="lazy" style="object-position: 70% center;">
+          <div class="hp-content">
+            <p>02</p>
+            <h3>STRENGTH TRAINING</h3>
+          </div>
+        </a>
+        
+        <a href="training-programs.html" class="hp-block hp-small reveal reveal-delay-1">
+          <img src="assets/images/gym-image-10.JPG" alt="Personal Training" class="hp-bg" loading="lazy" style="object-position: center 20%;">
+          <div class="hp-content">
+            <p>03</p>
+            <h3>PERSONAL TRAINING</h3>
+          </div>
+        </a>
+        
+        <a href="training-programs.html" class="hp-block hp-small reveal reveal-delay-2">
+          <img src="assets/images/gym-image-4.JPG" alt="Fat Loss" class="hp-bg" loading="lazy" style="object-position: center 40%;">
+          <div class="hp-content">
+            <p>04</p>
+            <h3>FAT LOSS & FITNESS</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Train With Us (Rich Layer) -->
+  <section class="why-rich">
+    <div class="standards-moving-bg"></div>
+    <div class="standards-overlay"></div>
+    
+    <div class="standards-content">
+      <div class="container split-layout">
+        <div class="split-image reveal">
+          <span class="label-small">03. STANDARDS</span>
+          <h2 class="heading-lg">WHY TRAIN<br>WITH US</h2>
+          <p class="text-lead" style="color: #ccc;">A no-distraction zone dedicated purely to serious training and results. We provide the tools, you provide the discipline.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top: 10px;">Join The Gym</a>
+        </div>
+        <div class="split-content reveal reveal-delay-1">
+          <div class="why-list-premium">
+            <div class="why-item-premium">
+              <div class="why-number-premium">01</div>
+              <h3 class="why-title-premium">FOCUSED TRAINING ENVIRONMENT</h3>
+            </div>
+            <div class="why-item-premium">
+              <div class="why-number-premium">02</div>
+              <h3 class="why-title-premium">QUALITY GYM EQUIPMENT</h3>
+            </div>
+            <div class="why-item-premium">
+              <div class="why-number-premium">03</div>
+              <h3 class="why-title-premium">PERSONAL GUIDANCE</h3>
+            </div>
+            <div class="why-item-premium">
+              <div class="why-number-premium">04</div>
+              <h3 class="why-title-premium">STRENGTH & FITNESS PROGRAMS</h3>
+            </div>
+            <div class="why-item-premium" style="border-bottom: none;">
+              <div class="why-number-premium">05</div>
+              <h3 class="why-title-premium">MORNING & EVENING TIMINGS</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="section">
+    <div class="container">
+      <div class="gallery-header reveal" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px;">
+        <div>
+          <span class="label-small">04. FACILITY</span>
+          <h2 class="heading-lg" style="margin-bottom: 0;">VISUAL GALLERY</h2>
+        </div>
+        <a href="gallery.html" class="btn btn-outline btn-gallery-hover" style="margin-bottom: 15px;">View Full Gallery &rarr;</a>
+      </div>
+      
+      <div class="gallery-marquee-wrapper reveal reveal-delay-1">
+        <!-- Group 1 -->
+        <div class="gallery-marquee-group">
+          <a href="#" class="hg-item masonry-item" aria-label="View larger image of Punching Bag Area">
+            <img src="assets/images/thumbs/gym-image-55-800.webp" srcset="assets/images/thumbs/gym-image-55-480.webp 480w, assets/images/thumbs/gym-image-55-800.webp 800w, assets/images/thumbs/gym-image-55-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="eager" decoding="async" alt="Members training inside The Ryan Gym punching bag area" class="hg-img" style="object-position: center;" data-large-src="assets/images/gym-image-55.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" aria-label="View larger image of Gym Details">
+            <img src="assets/images/thumbs/gym-image-41-800.webp" srcset="assets/images/thumbs/gym-image-41-480.webp 480w, assets/images/thumbs/gym-image-41-800.webp 800w, assets/images/thumbs/gym-image-41-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="Gym interior and lifting details" class="hg-img" style="object-position: center 20%;" data-large-src="assets/images/gym-image-41.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" aria-label="View larger image of Weights">
+            <img src="assets/images/thumbs/gym-image-4-800.webp" srcset="assets/images/thumbs/gym-image-4-480.webp 480w, assets/images/thumbs/gym-image-4-800.webp 800w, assets/images/thumbs/gym-image-4-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="Heavy free weights section" class="hg-img" style="object-position: center;" data-large-src="assets/images/gym-image-4.JPG">
+          </a>
+          <a href="#" class="hg-item masonry-item" aria-label="View larger image of Equipment">
+            <img src="assets/images/thumbs/gym-image-71-800.webp" srcset="assets/images/thumbs/gym-image-71-480.webp 480w, assets/images/thumbs/gym-image-71-800.webp 800w, assets/images/thumbs/gym-image-71-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="High quality gym equipment and machines" class="hg-img" style="object-position: center 30%;" data-large-src="assets/images/gym-image-71.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" aria-label="View larger image of Active Members">
+            <img src="assets/images/thumbs/gym-image-26-800.webp" srcset="assets/images/thumbs/gym-image-26-480.webp 480w, assets/images/thumbs/gym-image-26-800.webp 800w, assets/images/thumbs/gym-image-26-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="Members training on the gym floor" class="hg-img" style="object-position: center 25%;" data-large-src="assets/images/gym-image-26.JPG">
+          </a>
+        </div>
+
+        <!-- Group 2 (Duplicate for Seamless Loop) -->
+        <div class="gallery-marquee-group" aria-hidden="true">
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-55-800.webp" srcset="assets/images/thumbs/gym-image-55-480.webp 480w, assets/images/thumbs/gym-image-55-800.webp 800w, assets/images/thumbs/gym-image-55-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center;" data-large-src="assets/images/gym-image-55.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-41-800.webp" srcset="assets/images/thumbs/gym-image-41-480.webp 480w, assets/images/thumbs/gym-image-41-800.webp 800w, assets/images/thumbs/gym-image-41-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center 20%;" data-large-src="assets/images/gym-image-41.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-4-800.webp" srcset="assets/images/thumbs/gym-image-4-480.webp 480w, assets/images/thumbs/gym-image-4-800.webp 800w, assets/images/thumbs/gym-image-4-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center;" data-large-src="assets/images/gym-image-4.JPG">
+          </a>
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-71-800.webp" srcset="assets/images/thumbs/gym-image-71-480.webp 480w, assets/images/thumbs/gym-image-71-800.webp 800w, assets/images/thumbs/gym-image-71-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center 30%;" data-large-src="assets/images/gym-image-71.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-26-800.webp" srcset="assets/images/thumbs/gym-image-26-480.webp 480w, assets/images/thumbs/gym-image-26-800.webp 800w, assets/images/thumbs/gym-image-26-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center 25%;" data-large-src="assets/images/gym-image-26.JPG">
+          </a>
+        </div>
+
+        <!-- Group 3 (Duplicate for Ultrawide Screens) -->
+        <div class="gallery-marquee-group" aria-hidden="true">
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-55-800.webp" srcset="assets/images/thumbs/gym-image-55-480.webp 480w, assets/images/thumbs/gym-image-55-800.webp 800w, assets/images/thumbs/gym-image-55-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center;" data-large-src="assets/images/gym-image-55.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-41-800.webp" srcset="assets/images/thumbs/gym-image-41-480.webp 480w, assets/images/thumbs/gym-image-41-800.webp 800w, assets/images/thumbs/gym-image-41-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center 20%;" data-large-src="assets/images/gym-image-41.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-4-800.webp" srcset="assets/images/thumbs/gym-image-4-480.webp 480w, assets/images/thumbs/gym-image-4-800.webp 800w, assets/images/thumbs/gym-image-4-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center;" data-large-src="assets/images/gym-image-4.JPG">
+          </a>
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-71-800.webp" srcset="assets/images/thumbs/gym-image-71-480.webp 480w, assets/images/thumbs/gym-image-71-800.webp 800w, assets/images/thumbs/gym-image-71-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center 30%;" data-large-src="assets/images/gym-image-71.jpg">
+          </a>
+          <a href="#" class="hg-item masonry-item" tabindex="-1">
+            <img src="assets/images/thumbs/gym-image-26-800.webp" srcset="assets/images/thumbs/gym-image-26-480.webp 480w, assets/images/thumbs/gym-image-26-800.webp 800w, assets/images/thumbs/gym-image-26-1200.webp 1200w" sizes="(max-width: 576px) 240px, (max-width: 992px) 280px, 320px" width="1200" height="800" loading="lazy" decoding="async" alt="" class="hg-img" style="object-position: center 25%;" data-large-src="assets/images/gym-image-26.JPG">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Preview Redesign -->
+  <section class="mem-preview-section">
+    <div class="container mem-preview-container">
+      <div class="mem-left-content reveal">
+        <span class="label-small" style="margin-bottom: 15px; display: block;">05. MEMBERSHIPS</span>
+        <h2 class="heading-lg" style="margin-bottom: 25px;">COMMIT TO<br>YOURSELF</h2>
+        <p class="mem-left-text">Choose a plan that fits your goals. Our memberships offer full access to the floor, equipment, and a community of dedicated lifters.</p>
+        <a href="membership-plans.html" class="btn-mem-view">View All Plans</a>
+      </div>
+      
+      <div class="mem-cards-wrap reveal reveal-delay-1">
+        <a href="contact.html" class="mem-card-premium">
+          <div>
+            <h3 class="mem-card-title">MONTHLY PLAN</h3>
+            <p class="mem-card-subtitle">Flexible short-term access</p>
+          </div>
+          <span class="mem-enquire-link">Enquire &rarr;</span>
+        </a>
+        
+        <a href="contact.html" class="mem-card-premium mem-card-popular">
+          <div>
+            <div style="display: flex; align-items: center;">
+              <h3 class="mem-card-title">QUARTERLY PLAN</h3>
+              <span class="mem-badge-popular">POPULAR</span>
+            </div>
+            <p class="mem-card-subtitle">Best value for committed members</p>
+          </div>
+          <span class="mem-enquire-link">Enquire &rarr;</span>
+        </a>
+        
+        <a href="contact.html" class="mem-card-premium">
+          <div>
+            <h3 class="mem-card-title">ANNUAL PLAN</h3>
+            <p class="mem-card-subtitle">Long-term dedication</p>
+          </div>
+          <span class="mem-enquire-link">Enquire &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Refined -->
+  <section class="cta-hero">
+    <img src="assets/images/gym-image-59.jpg" alt="Gym Overview" class="cta-bg" loading="lazy" style="object-position: center 30%;">
+    <div class="cta-overlay"></div>
+    <div class="container cta-content reveal">
+      <h2 class="heading-lg text-primary">YOUR STRONGER SELF<br>STARTS HERE.</h2>
+      <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px; flex-wrap: wrap;">
+        <a href="tel:+917018290692" class="btn btn-primary" style="min-width: 200px;">Call Now</a>
+        <a href="https://wa.me/917018290692" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); background: rgba(0,0,0,0.6); min-width: 200px;">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <script src="js/script.js"></script>
+  <script src="assets/js/layout.js"></script>
+</body>
+</html>

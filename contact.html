@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | THE RYAN GYM</title>
+  <meta name="description" content="Contact THE RYAN GYM in Mubarikpur. Visit us during our morning or evening hours or submit an enquiry for memberships.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    
+    /* Contact Split */
+    .contact-split {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+    }
+    
+    .contact-details h2 { margin-bottom: 40px; }
+    .contact-block {
+      margin-bottom: 30px;
+    }
+    .contact-block span.title {
+      font-family: var(--font-heading);
+      color: var(--accent-yellow);
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .contact-block p, .contact-block a {
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    .contact-block a:hover { color: var(--accent-yellow); }
+    
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 40px;
+    }
+    
+    /* Premium Form */
+    .form-wrapper {
+      background-color: var(--bg-elevated);
+      padding: 60px;
+      border: 1px solid var(--border-muted);
+    }
+    .form-group { margin-bottom: 25px; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .form-control {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border-muted);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      padding: 10px 0;
+      transition: border-color var(--transition-fast);
+      border-radius: 0; /* Override any Safari defaults */
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-yellow);
+    }
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23AAA9A2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1em;
+    }
+    
+    @media (max-width: 992px) {
+      .contact-split { grid-template-columns: 1fr; gap: 60px; }
+      .form-wrapper { padding: 40px 20px; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+    <!-- Page Hero -->
+  <section class="page-hero">
+    <img src="assets/images/gym-image-55.jpg" alt="The Ryan Gym" class="page-hero-bg" fetchpriority="high">
+    <div class="page-hero-overlay"></div>
+    <div class="container reveal page-hero-content">
+      <span class="page-hero-label">GET IN TOUCH</span>
+      <h1 class="page-hero-heading">LET'S <span style="color: var(--accent-yellow);">CONNECT</span></h1>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" style="padding-top: 40px;">
+    <div class="container contact-split">
+      
+      <!-- Details -->
+      <div class="contact-details reveal">
+        <h2 class="heading-md">VISIT THE GYM</h2>
+        
+        <div class="contact-block">
+          <span class="title">ADDRESS</span>
+          <p>Basement, Opposite Post Office Mubarikpur,<br>Mubarikpur, Tehsil Amb,<br>District Una, Himachal Pradesh – 177202</p>
+        </div>
+        
+        <div class="contact-block">
+          <span class="title">PHONE & WHATSAPP</span>
+          <p><a href="tel:+917018290692">+91 7018290692</a></p>
+          <p><a href="tel:+919736363631">+91 9736363631</a></p>
+        </div>
+        
+        <div class="contact-block">
+          <span class="title">EMAIL</span>
+          <p><a href="mailto:sohallalit@gmail.com">sohallalit@gmail.com</a></p>
+        </div>
+        
+        <div class="contact-block">
+          <span class="title">OPENING HOURS</span>
+          <p>Morning: 4:00 AM — 11:00 AM</p>
+          <p>Evening: 3:00 PM — 10:00 PM</p>
+        </div>
+        
+        <div class="contact-actions">
+          <a href="tel:+917018290692" class="btn btn-primary" style="width: 100%;">Call Us Now</a>
+          <a href="https://wa.me/917018290692" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">WhatsApp Us</a>
+          <a href="https://maps.google.com/?q=The+Ryan+Gym+Mubarikpur" target="_blank" rel="noopener noreferrer" class="btn btn-link" style="width: max-content; margin-top: 10px;">Get Directions &rarr;</a>
+        </div>
+      </div>
+      
+      <!-- Form -->
+      <div class="form-wrapper reveal reveal-delay-1">
+        <h2 class="heading-md" style="margin-bottom: 40px;">SEND AN ENQUIRY</h2>
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="fullName">FULL NAME</label>
+            <input type="text" id="fullName" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">PHONE NUMBER</label>
+            <input type="tel" id="phone" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">EMAIL ADDRESS</label>
+            <input type="email" id="email" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="program">INTERESTED PROGRAM</label>
+            <select id="program" class="form-control" required>
+              <option value="" disabled selected>Select...</option>
+              <option value="Strength Training">Strength Training</option>
+              <option value="Weight Training">Weight Training</option>
+              <option value="Cardio Training">Cardio Training</option>
+              <option value="Personal Training">Personal Training</option>
+              <option value="Fat Loss">Fat Loss</option>
+              <option value="Muscle Building">Muscle Building</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan">PREFERRED PLAN</label>
+            <select id="plan" class="form-control" required>
+              <option value="" disabled selected>Select...</option>
+              <option value="Monthly Plan">Monthly Plan</option>
+              <option value="Quarterly Plan">Quarterly Plan (Most Popular)</option>
+              <option value="Half-Yearly Plan">Half-Yearly Plan</option>
+              <option value="Annual Plan">Annual Plan</option>
+              <option value="Personal Training">Personal Training</option>
+              <option value="Not Sure Yet">Not Sure Yet</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">MESSAGE</label>
+            <textarea id="message" class="form-control" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Submit Enquiry</button>
+        </form>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <script src="js/script.js"></script>
+  <script src="assets/js/layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memberships | THE RYAN GYM</title>
+  <meta name="description" content="Explore membership options at THE RYAN GYM. Monthly, Quarterly, Half-Yearly, and Annual plans available.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    
+    /* Premium Membership List */
+    .mem-container {
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border-muted);
+    }
+    
+    .mem-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      align-items: center;
+      padding: 50px 40px;
+      border-bottom: 1px solid var(--border-muted);
+      transition: background-color var(--transition-fast);
+      background-color: var(--bg-primary);
+    }
+    .mem-row:hover {
+      background-color: var(--bg-elevated);
+    }
+    
+    .mem-row.popular {
+      background-color: #141414;
+      border-left: 4px solid var(--accent-yellow);
+    }
+    .mem-row.popular:hover {
+      background-color: #1a1a1a;
+    }
+    
+    .mem-name {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      color: var(--text-primary);
+      margin-bottom: 5px;
+    }
+    .mem-label {
+      background-color: var(--accent-yellow);
+      color: var(--bg-primary);
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      display: inline-block;
+      margin-left: 15px;
+      vertical-align: middle;
+    }
+    
+    .mem-price {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+    }
+    
+    .mem-action {
+      text-align: right;
+    }
+    
+    .note-panel {
+      max-width: 900px;
+      margin: 60px auto 0;
+      padding: 40px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-muted);
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .mem-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 40px 20px;
+      }
+      .mem-action { text-align: left; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+    <!-- Page Hero -->
+  <section class="page-hero">
+    <img src="assets/images/gym-image-48.jpg" alt="The Ryan Gym" class="page-hero-bg" fetchpriority="high">
+    <div class="page-hero-overlay"></div>
+    <div class="container reveal page-hero-content">
+      <span class="page-hero-label">JOIN THE COMMUNITY</span>
+      <h1 class="page-hero-heading">MAKE THE<br><span style="color: var(--accent-yellow);">COMMITMENT</span></h1>
+    </div>
+  </section>
+
+  <!-- Plans List -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="mem-container">
+        
+        <!-- Monthly -->
+        <div class="mem-row reveal">
+          <div>
+            <h2 class="mem-name">MONTHLY PLAN</h2>
+          </div>
+          <div>
+            <span class="mem-price">CONTACT FOR PRICING</span>
+          </div>
+          <div class="mem-action">
+            <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
+          </div>
+        </div>
+        
+        <!-- Quarterly (Popular) -->
+        <div class="mem-row popular reveal reveal-delay-1">
+          <div>
+            <h2 class="mem-name" style="display: inline-block;">QUARTERLY PLAN</h2>
+            <span class="mem-label">MOST POPULAR</span>
+          </div>
+          <div>
+            <span class="mem-price">CONTACT FOR PRICING</span>
+          </div>
+          <div class="mem-action">
+            <a href="contact.html" class="btn-link" style="color: var(--accent-yellow);">Enquire Now &rarr;</a>
+          </div>
+        </div>
+        
+        <!-- Half-Yearly -->
+        <div class="mem-row reveal">
+          <div>
+            <h2 class="mem-name">HALF-YEARLY PLAN</h2>
+          </div>
+          <div>
+            <span class="mem-price">CONTACT FOR PRICING</span>
+          </div>
+          <div class="mem-action">
+            <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
+          </div>
+        </div>
+        
+        <!-- Annual -->
+        <div class="mem-row reveal">
+          <div>
+            <h2 class="mem-name">ANNUAL PLAN</h2>
+          </div>
+          <div>
+            <span class="mem-price">CONTACT FOR PRICING</span>
+          </div>
+          <div class="mem-action">
+            <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
+          </div>
+        </div>
+        
+        <!-- PT -->
+        <div class="mem-row reveal">
+          <div>
+            <h2 class="mem-name">PERSONAL TRAINING</h2>
+          </div>
+          <div>
+            <span class="mem-price">CONTACT FOR PRICING</span>
+          </div>
+          <div class="mem-action">
+            <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Note & Contact Links -->
+      <div class="note-panel reveal">
+        <h3 class="heading-md">READY TO START?</h3>
+        <p class="text-body mb-4" style="margin: 0 auto 30px; max-width: 600px;">Plan details, current rates, and tailored personal training packages can be confirmed directly with our front desk.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:+917018290692" class="btn btn-primary">Call +91 7018290692</a>
+          <a href="https://wa.me/917018290692" target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
+        </div>
+        <div style="margin-top: 40px; border-top: 1px solid var(--border-muted); padding-top: 30px;">
+          <span style="display: block; font-family: var(--font-heading); color: var(--accent-yellow); margin-bottom: 10px;">VISIT US DURING OPENING HOURS:</span>
+          <p class="text-secondary" style="font-size: 1.1rem;">Morning: 4:00 AM — 11:00 AM &nbsp;&nbsp;|&nbsp;&nbsp; Evening: 3:00 PM — 10:00 PM</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <script src="js/script.js"></script>
+  <script src="assets/js/layout.js"></script>
+</body>
+</html>

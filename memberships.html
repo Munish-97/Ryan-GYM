@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <title>Membership Plans | THE RYAN GYM</title>
+  <meta name="description" content="Contact THE RYAN GYM for monthly, quarterly, half-yearly, annual and personal training membership details.">
+  <link rel="canonical" href="https://ryan-gym.vercel.app/memberships.html">
+  
+  <meta property="og:title" content="Membership Plans | THE RYAN GYM">
+  <meta property="og:description" content="Contact THE RYAN GYM for monthly, quarterly, half-yearly, annual and personal training membership details.">
+  <meta property="og:url" content="https://ryan-gym.vercel.app/memberships.html">
+  
+  <meta name="twitter:title" content="Membership Plans | THE RYAN GYM">
+  <meta name="twitter:description" content="Contact THE RYAN GYM for monthly, quarterly, half-yearly, annual and personal training membership details.">
+
+  <!-- Basic Metadata -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memberships | THE RYAN GYM</title>
-  <meta name="description" content="Explore membership options at THE RYAN GYM. Monthly, Quarterly, Half-Yearly, and Annual plans available.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="THE RYAN GYM">
+  
+  <!-- Favicons -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/icons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#0B0B0B">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="THE RYAN GYM">
+  <meta property="og:image" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta property="og:image:secure_url" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="THE RYAN GYM in Mubarikpur, Himachal Pradesh">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta name="twitter:image:alt" content="THE RYAN GYM in Mubarikpur, Himachal Pradesh">
+
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <style>
     
+    /* Memberships Specific Hero Overrides */
+    #memberships-hero {
+      min-height: 420px;
+      padding-top: calc(90px + 45px);
+      padding-bottom: 60px;
+    }
+    #memberships-hero .page-hero-overlay {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.98) 100%);
+    }
+    #memberships-hero .page-hero-label { margin-bottom: 12px; }
+    #memberships-hero .page-hero-heading { font-size: 64px; margin-bottom: 0; }
+    
+    @media (max-width: 768px) {
+      #memberships-hero { min-height: 340px; padding-top: calc(70px + 25px); padding-bottom: 45px; }
+      #memberships-hero .page-hero-content { padding-left: 20px; padding-right: 20px; }
+      #memberships-hero .page-hero-heading { font-size: 38px; }
+    }
+
     /* Premium Membership List */
     .mem-container {
       max-width: 900px;
@@ -81,6 +134,191 @@
       }
       .mem-action { text-align: left; }
     }
+
+    /* Performance Animated Background */
+    #membership-plans-section {
+      position: relative;
+      background-color: #060606;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+    
+    .perf-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .perf-grid {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-position: center;
+      opacity: 0.8;
+    }
+    
+    .perf-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 100%; height: 100%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse at center, rgba(210, 255, 0, 0.04) 0%, transparent 60%);
+    }
+    
+    .perf-graph {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 200%;
+      height: 300px;
+      transform: translateY(-50%);
+      display: flex;
+      animation: perfSlide 25s linear infinite;
+      opacity: 0.25;
+    }
+    
+    .perf-graph svg {
+      width: 50%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+    
+    .graph-line {
+      fill: none;
+      stroke: var(--accent-yellow);
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+    
+    .graph-line-glow {
+      fill: none;
+      stroke: var(--accent-yellow);
+      stroke-width: 8;
+      opacity: 0.3;
+      filter: blur(4px);
+      vector-effect: non-scaling-stroke;
+    }
+    
+    @keyframes perfSlide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    /* Update Mem Row for Dashboard feel */
+    .mem-container {
+      border-top: none;
+    }
+    
+    .mem-row {
+      background-color: rgba(14, 14, 14, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .mem-row:last-child {
+      margin-bottom: 0;
+    }
+    
+    .mem-row.popular {
+      background-color: rgba(20, 20, 20, 0.95);
+      border: 1px solid rgba(210, 255, 0, 0.2);
+      border-left: 4px solid var(--accent-yellow) !important;
+    }
+    
+    .note-panel {
+      background-color: rgba(14, 14, 14, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    /* Memberships Final CTA */
+    .mem-cta-hero {
+      position: relative;
+      min-height: 500px;
+      padding: 90px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .mem-cta-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -2;
+    }
+    .mem-cta-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.76) 0%,
+        rgba(0, 0, 0, 0.62) 45%,
+        rgba(0, 0, 0, 0.68) 100%
+      );
+      z-index: -1;
+    }
+    .mem-cta-content {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .mem-cta-label {
+      color: var(--accent-yellow);
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      display: block;
+      font-weight: 600;
+    }
+    .mem-cta-heading {
+      font-size: 5rem;
+      font-family: var(--font-heading);
+      line-height: 1.02;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 20px 40px rgba(0,0,0,0.9);
+    }
+    .mem-cta-text {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    
+    @media (max-width: 768px) {
+      .mem-cta-hero {
+        min-height: 420px;
+        padding: 70px 20px;
+      }
+      .mem-cta-heading {
+        font-size: 3rem;
+      }
+      .mem-cta-buttons {
+        flex-direction: column;
+        gap: 15px !important;
+      }
+      .mem-cta-buttons .btn {
+        width: 100%;
+      }
+    }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
@@ -90,8 +328,8 @@
   <div id="site-header"></div>
 
     <!-- Page Hero -->
-  <section class="page-hero">
-    <img src="assets/images/gym-image-48.jpg" alt="The Ryan Gym" class="page-hero-bg" fetchpriority="high">
+  <section class="page-hero" id="memberships-hero">
+    <img src="assets/images/gym-image-76.jpg" alt="The Ryan Gym" class="page-hero-bg" fetchpriority="high">
     <div class="page-hero-overlay"></div>
     <div class="container reveal page-hero-content">
       <span class="page-hero-label">JOIN THE COMMUNITY</span>
@@ -100,8 +338,27 @@
   </section>
 
   <!-- Plans List -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
+  <section class="section" id="membership-plans-section">
+    
+    <!-- Animated Performance Background -->
+    <div class="perf-bg">
+      <div class="perf-grid"></div>
+      <div class="perf-glow"></div>
+      <div class="perf-graph">
+        <!-- SVG 1 -->
+        <svg viewBox="0 0 1000 200" preserveAspectRatio="none">
+          <path class="graph-line-glow" d="M0,150 L100,150 L150,80 L200,180 L250,110 L300,150 L500,150 L550,60 L600,190 L650,90 L700,150 L1000,150" />
+          <path class="graph-line" d="M0,150 L100,150 L150,80 L200,180 L250,110 L300,150 L500,150 L550,60 L600,190 L650,90 L700,150 L1000,150" />
+        </svg>
+        <!-- SVG 2 (Duplicate for seamless loop) -->
+        <svg viewBox="0 0 1000 200" preserveAspectRatio="none">
+          <path class="graph-line-glow" d="M0,150 L100,150 L150,80 L200,180 L250,110 L300,150 L500,150 L550,60 L600,190 L650,90 L700,150 L1000,150" />
+          <path class="graph-line" d="M0,150 L100,150 L150,80 L200,180 L250,110 L300,150 L500,150 L550,60 L600,190 L650,90 L700,150 L1000,150" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="container" style="position: relative; z-index: 10;">
       <div class="mem-container">
         
         <!-- Monthly -->
@@ -171,21 +428,23 @@
         </div>
         
       </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Refined -->
+  <section class="mem-cta-hero">
+    <!-- Using a sharp landscape gym-interior image (gym-image-38.jpg) -->
+    <img src="assets/images/gym-image-38.jpg" alt="Gym Overview" class="mem-cta-bg" loading="lazy">
+    <div class="mem-cta-overlay"></div>
+    <div class="container mem-cta-content reveal">
+      <span class="mem-cta-label">READY TO START?</span>
+      <h2 class="mem-cta-heading">MAKE YOUR<br>COMMITMENT.</h2>
+      <p class="mem-cta-text">Contact us directly for current membership details and personal training options.</p>
       
-      <!-- Note & Contact Links -->
-      <div class="note-panel reveal">
-        <h3 class="heading-md">READY TO START?</h3>
-        <p class="text-body mb-4" style="margin: 0 auto 30px; max-width: 600px;">Plan details, current rates, and tailored personal training packages can be confirmed directly with our front desk.</p>
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-          <a href="tel:+917018290692" class="btn btn-primary">Call +91 7018290692</a>
-          <a href="https://wa.me/917018290692" target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Us</a>
-        </div>
-        <div style="margin-top: 40px; border-top: 1px solid var(--border-muted); padding-top: 30px;">
-          <span style="display: block; font-family: var(--font-heading); color: var(--accent-yellow); margin-bottom: 10px;">VISIT US DURING OPENING HOURS:</span>
-          <p class="text-secondary" style="font-size: 1.1rem;">Morning: 4:00 AM — 11:00 AM &nbsp;&nbsp;|&nbsp;&nbsp; Evening: 3:00 PM — 10:00 PM</p>
-        </div>
+      <div class="mem-cta-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="tel:+917018290692" class="btn btn-primary" style="min-width: 200px;">CALL NOW</a>
+        <a href="https://wa.me/917018290692" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); background: rgba(0,0,0,0.6); min-width: 200px;">WHATSAPP US</a>
       </div>
-      
     </div>
   </section>
 

@@ -141,16 +141,44 @@ const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
 if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
+  const closeMenu = () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  const toggleMenu = (e) => {
+    e.stopPropagation();
+    const isActive = hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
-  });
+    document.body.style.overflow = isActive ? 'hidden' : '';
+  };
+
+  hamburger.addEventListener('click', toggleMenu);
 
   document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+
+  // Reset scroll on resize if crossing breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024 && navLinks.classList.contains('active')) {
+      closeMenu();
+    }
   });
 }
 

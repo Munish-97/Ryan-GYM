@@ -150,4 +150,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* --------------------------------------------------
+     HOME WELCOME POPUP
+     -------------------------------------------------- */
+  const welcomePopup = document.getElementById('homeWelcomePopup');
+  if (welcomePopup) {
+    const hasSeenPopup = localStorage.getItem('ryanGymWelcomePopupSeen');
+    
+    if (!hasSeenPopup) {
+      setTimeout(() => {
+        welcomePopup.removeAttribute('hidden');
+        
+        // Force reflow
+        void welcomePopup.offsetWidth;
+        
+        welcomePopup.classList.add('is-visible');
+        document.body.style.overflow = 'hidden'; // Lock scrolling
+        
+        // Accessibility focus
+        const closeBtn = document.getElementById('homeWelcomePopupClose');
+        if (closeBtn) {
+          setTimeout(() => closeBtn.focus(), 400); // Focus after animation
+        }
+        
+        localStorage.setItem('ryanGymWelcomePopupSeen', 'true');
+      }, 1500);
+    }
+    
+    const closePopup = () => {
+      welcomePopup.classList.remove('is-visible');
+      document.body.style.overflow = ''; // Restore scrolling
+      
+      setTimeout(() => {
+        welcomePopup.setAttribute('hidden', '');
+      }, 400); // Wait for transition
+    };
+    
+    const closeBtn = document.getElementById('homeWelcomePopupClose');
+    const backdrop = document.getElementById('homeWelcomePopupBackdrop');
+    
+    if (closeBtn) closeBtn.addEventListener('click', closePopup);
+    if (backdrop) backdrop.addEventListener('click', closePopup);
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && welcomePopup.classList.contains('is-visible')) {
+        closePopup();
+      }
+    });
+  }
+
 });

@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <title>THE RYAN GYM | Fitness & Strength Training in Mubarikpur</title>
+  <meta name="description" content="Build strength, confidence and lasting fitness at THE RYAN GYM in Mubarikpur, District Una, Himachal Pradesh.">
+  <link rel="canonical" href="https://ryan-gym.vercel.app/">
+  
+  <meta property="og:title" content="THE RYAN GYM | Fitness & Strength Training in Mubarikpur">
+  <meta property="og:description" content="Build strength, confidence and lasting fitness at THE RYAN GYM in Mubarikpur, District Una, Himachal Pradesh.">
+  <meta property="og:url" content="https://ryan-gym.vercel.app/">
+  
+  <meta name="twitter:title" content="THE RYAN GYM | Fitness & Strength Training in Mubarikpur">
+  <meta name="twitter:description" content="Build strength, confidence and lasting fitness at THE RYAN GYM in Mubarikpur, District Una, Himachal Pradesh.">
+
+  <!-- Basic Metadata -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE RYAN GYM | Built By Discipline</title>
-  <meta name="description" content="THE RYAN GYM in Mubarikpur. A premium training environment for strength, fitness and lasting progress.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="THE RYAN GYM">
+  
+  <!-- Favicons -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/icons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#0B0B0B">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="THE RYAN GYM">
+  <meta property="og:image" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta property="og:image:secure_url" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="THE RYAN GYM in Mubarikpur, Himachal Pradesh">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta name="twitter:image:alt" content="THE RYAN GYM in Mubarikpur, Himachal Pradesh">
+
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
@@ -912,6 +947,33 @@
 
   <!-- Footer -->
   <div id="site-footer"></div>
+
+  <!-- Welcome Popup -->
+  <div id="homeWelcomePopup" class="home-welcome-popup" role="dialog" aria-modal="true" aria-labelledby="popup-heading" aria-describedby="popup-desc" hidden>
+    <div class="home-welcome-popup__backdrop" id="homeWelcomePopupBackdrop"></div>
+    <div class="home-welcome-popup__dialog">
+      <button class="home-welcome-popup__close" id="homeWelcomePopupClose" aria-label="Close welcome popup">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="home-welcome-popup__image">
+        <img src="assets/images/gym-image-15.JPG" alt="Ryan Gym Interior">
+        <div class="home-welcome-popup__overlay"></div>
+      </div>
+      <div class="home-welcome-popup__content">
+        <span class="home-welcome-popup__label">WELCOME TO THE RYAN GYM</span>
+        <h2 id="popup-heading" class="home-welcome-popup__heading">YOUR STRONGER<br>JOURNEY STARTS HERE.</h2>
+        <p id="popup-desc" class="home-welcome-popup__desc">Discover focused training, quality equipment and membership options designed to help you build strength, confidence and lasting progress.</p>
+        <div class="home-welcome-popup__actions">
+          <a href="memberships.html" class="btn btn-primary">EXPLORE MEMBERSHIPS</a>
+          <a href="https://wa.me/917018290692" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: rgba(255,255,255,0.2);">WHATSAPP US</a>
+        </div>
+        <p class="home-welcome-popup__timing">Morning: 4:00 AM – 11:00 AM<br>Evening: 3:00 PM – 10:00 PM</p>
+      </div>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
   <script src="assets/js/layout.js"></script>

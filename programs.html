@@ -1,69 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <title>Training Programs | THE RYAN GYM</title>
+  <meta name="description" content="Explore strength training, personal training, cardio, fat loss, muscle building and general fitness programs.">
+  <link rel="canonical" href="https://ryan-gym.vercel.app/programs.html">
+  
+  <meta property="og:title" content="Training Programs | THE RYAN GYM">
+  <meta property="og:description" content="Explore strength training, personal training, cardio, fat loss, muscle building and general fitness programs.">
+  <meta property="og:url" content="https://ryan-gym.vercel.app/programs.html">
+  
+  <meta name="twitter:title" content="Training Programs | THE RYAN GYM">
+  <meta name="twitter:description" content="Explore strength training, personal training, cardio, fat loss, muscle building and general fitness programs.">
+
+  <!-- Basic Metadata -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programs | THE RYAN GYM</title>
-  <meta name="description" content="Explore our specialized training programs at THE RYAN GYM, including Strength, Weight, Cardio, Personal Training, Fat Loss, and Muscle Building.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="THE RYAN GYM">
+  
+  <!-- Favicons -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/icons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#0B0B0B">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="THE RYAN GYM">
+  <meta property="og:image" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta property="og:image:secure_url" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="THE RYAN GYM in Mubarikpur, Himachal Pradesh">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta name="twitter:image:alt" content="THE RYAN GYM in Mubarikpur, Himachal Pradesh">
+
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <style>
+    /* Programs Grid Redesign */
+    .programs-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
     
-    /* Alternating Program Rows */
-    .prog-row {
+    .programs-intro {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .programs-intro h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .programs-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      align-items: stretch;
-      min-height: 600px;
-    }
-    .prog-row.reverse .prog-img-wrapper { order: 2; }
-    .prog-row.reverse .prog-content { order: 1; }
-    
-    .prog-img-wrapper { position: relative; }
-    .prog-img {
-      width: 100%; height: 100%; object-fit: cover;
-      position: absolute; top: 0; left: 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
     }
     
-    .prog-content {
-      padding: 100px 80px;
+    .program-card {
+      background-color: #111;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      background-color: var(--bg-primary);
-    }
-    .prog-row:nth-child(even) .prog-content {
-      background-color: var(--bg-secondary);
     }
     
-    .prog-number {
+    .program-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(210, 255, 0, 0.3);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+    
+    .card-img-wrapper {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    .program-card:hover .card-img {
+      transform: scale(1.08);
+    }
+    
+    .card-content {
+      padding: 35px 30px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      position: relative;
+    }
+    
+    /* Subtle yellow top border on the content area for premium feel */
+    .card-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 30px;
+      right: 30px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent-yellow) 0%, transparent 100%);
+      opacity: 0.3;
+    }
+    
+    .card-title {
       font-family: var(--font-heading);
       font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+    
+    .card-desc {
+      color: #aaa;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      flex-grow: 1;
+    }
+    
+    .card-cta {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       color: var(--accent-yellow);
-      margin-bottom: 20px;
-      display: block;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
     
-    /* Feature Block for PT */
-    .feature-block {
-      position: relative;
-      padding: 140px 0;
+    .card-cta:hover {
+      color: #fff;
+    }
+    
+    .card-cta-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: transparent;
+      border: 1px solid var(--accent-yellow);
+      color: var(--accent-yellow);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
       text-align: center;
-    }
-    .feature-bg {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover; z-index: -2;
-    }
-    .feature-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(8,8,8,0.85); z-index: -1;
+      transition: all 0.3s ease;
     }
     
-    @media (max-width: 992px) {
-      .prog-row { grid-template-columns: 1fr; min-height: auto; }
-      .prog-row.reverse .prog-img-wrapper, .prog-row.reverse .prog-content { order: initial; }
-      .prog-img-wrapper { height: 400px; }
-      .prog-content { padding: 60px 40px; }
+    .card-cta-btn:hover {
+      background-color: var(--accent-yellow);
+      color: #000;
+    }
+    
+    /* Programs Specific Hero Overrides */
+    #programs-hero {
+      min-height: 420px;
+      padding-top: calc(90px + 45px);
+      padding-bottom: 60px;
+    }
+    #programs-hero .page-hero-overlay {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.98) 100%);
+    }
+    #programs-hero .page-hero-label { margin-bottom: 12px; }
+    #programs-hero .page-hero-heading { font-size: 64px; margin-bottom: 0; }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .programs-wrapper {
+        padding: 60px 20px;
+      }
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+      #programs-hero { min-height: 340px; padding-top: calc(70px + 25px); padding-bottom: 45px; }
+      #programs-hero .page-hero-content { padding-left: 20px; padding-right: 20px; }
+      #programs-hero .page-hero-heading { font-size: 38px; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -74,7 +215,7 @@
   <div id="site-header"></div>
 
     <!-- Page Hero -->
-  <section class="page-hero">
+  <section class="page-hero" id="programs-hero">
     <img src="assets/images/gym-image-48.jpg" alt="The Ryan Gym" class="page-hero-bg" fetchpriority="high">
     <div class="page-hero-overlay"></div>
     <div class="container reveal page-hero-content">
@@ -83,127 +224,127 @@
     </div>
   </section>
 
-  <!-- Alternating Rows -->
-  <div style="max-width: 1600px; margin: 0 auto;">
+  <!-- Grid Programs Content -->
+  <section class="programs-wrapper">
     
-    <!-- 1 -->
-    <div class="prog-row reveal">
-      <div class="prog-img-wrapper">
-        <img src="assets/images/gym-image-1.JPG" alt="Strength Training" class="prog-img" loading="lazy">
-      </div>
-      <div class="prog-content">
-        <span class="prog-number">01</span>
-        <h2 class="heading-lg">STRENGTH<br>TRAINING</h2>
-        <p class="text-body mb-3">Focus on heavy, compound lifts like squats, deadlifts, and bench presses. Build foundational power, increase bone density, and enhance your overall physical capability in our dedicated lifting zones.</p>
-        <div>
-          <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
-        </div>
-      </div>
+    <div class="programs-intro reveal">
+      <h2>Explore Our Training Programs</h2>
     </div>
     
-    <!-- 2 -->
-    <div class="prog-row reverse reveal">
-      <div class="prog-img-wrapper">
-        <img src="assets/images/gym-image-9.JPG" alt="Weight Training" class="prog-img" loading="lazy">
-      </div>
-      <div class="prog-content">
-        <span class="prog-number">02</span>
-        <h2 class="heading-lg">WEIGHT<br>TRAINING</h2>
-        <p class="text-body mb-3">Shape, define, and tone your physique. Utilize our extensive range of dumbbells, barbells, and specialized isolation machines to target specific muscle groups with absolute precision.</p>
-        <div>
-          <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
+    <div class="programs-grid">
+      
+      <!-- 1. Strength Training -->
+      <div class="program-card reveal">
+        <div class="card-img-wrapper">
+          <!-- Replaced awkward photo with gym-image-79.jpg for a more premium look -->
+          <img src="assets/images/gym-image-79.jpg" alt="Strength Training" class="card-img" loading="lazy" style="object-position: center 30%;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">STRENGTH TRAINING</h3>
+          <p class="card-desc">Focus on heavy, compound lifts like squats, deadlifts, and bench presses. Build foundational power and increase bone density.</p>
+          <a href="contact.html" class="card-cta-btn">Get Quote</a>
         </div>
       </div>
-    </div>
-    
-    <!-- 3 -->
-    <div class="prog-row reveal">
-      <div class="prog-img-wrapper">
-        <img src="assets/images/gym-image-36.jpg" alt="Cardio Training" class="prog-img" loading="lazy">
-      </div>
-      <div class="prog-content">
-        <span class="prog-number">03</span>
-        <h2 class="heading-lg">CARDIO<br>TRAINING</h2>
-        <p class="text-body mb-3">Improve endurance, stamina, and cardiovascular health. Whether you prefer treadmills, ellipticals, or high-intensity bursts, we provide the right equipment to keep your heart rate up.</p>
-        <div>
-          <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
+      
+      <!-- 2. Weight Training -->
+      <div class="program-card reveal reveal-delay-1">
+        <div class="card-img-wrapper">
+          <img src="assets/images/gym-image-10.JPG" alt="Weight Training" class="card-img" loading="lazy" style="object-position: center;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">WEIGHT TRAINING</h3>
+          <p class="card-desc">Shape, define, and tone your physique. Utilize our extensive range of dumbbells, barbells, and specialized isolation machines.</p>
+          <a href="tel:+917018290692" class="card-cta">Call Now &rarr;</a>
         </div>
       </div>
-    </div>
-    
-  </div>
-
-  <!-- Feature Block (PT) -->
-  <section class="feature-block reveal">
-    <img src="assets/images/gym-image-10.JPG" alt="Personal Training" class="feature-bg" loading="lazy">
-    <div class="feature-overlay"></div>
-    <div class="container" style="position: relative; z-index: 10;">
-      <span class="prog-number">04</span>
-      <h2 class="heading-xl">PERSONAL<br>TRAINING</h2>
-      <p class="text-body mb-4" style="margin: 0 auto 40px; max-width: 600px; font-size: 1.1rem; color: #fff;">Get customized guidance, strict form correction, and focused attention. Perfect for beginners learning the ropes or experienced lifters looking to break through frustrating plateaus.</p>
-      <a href="contact.html" class="btn btn-primary">Enquire Now</a>
+      
+      <!-- 3. Cardio Training -->
+      <div class="program-card reveal reveal-delay-2">
+        <div class="card-img-wrapper">
+          <img src="assets/images/gym-image-38.jpg" alt="Cardio Training" class="card-img" loading="lazy" style="object-position: center;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">CARDIO TRAINING</h3>
+          <p class="card-desc">Improve endurance, stamina, and cardiovascular health with our state-of-the-art treadmills, ellipticals, and rowers.</p>
+          <a href="contact.html" class="card-cta-btn">Get Quote</a>
+        </div>
+      </div>
+      
+      <!-- 4. Personal Training -->
+      <div class="program-card reveal">
+        <div class="card-img-wrapper">
+          <!-- Replaced with a strong human-focused coaching image -->
+          <img src="assets/images/gym-image-30.jpg" alt="Personal Training" class="card-img" loading="lazy" style="object-position: center 20%;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">PERSONAL TRAINING</h3>
+          <p class="card-desc">Get customized guidance, strict form correction, and focused attention from our certified expert trainers to hit your goals faster.</p>
+          <a href="tel:+917018290692" class="card-cta">Call Now &rarr;</a>
+        </div>
+      </div>
+      
+      <!-- 5. Fat Loss Training -->
+      <div class="program-card reveal reveal-delay-1">
+        <div class="card-img-wrapper">
+          <img src="assets/images/gym-image-4.JPG" alt="Fat Loss Training" class="card-img" loading="lazy" style="object-position: center 10%;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">FAT LOSS TRAINING</h3>
+          <p class="card-desc">High-intensity routines and metabolic conditioning designed specifically to burn fat efficiently while preserving lean muscle mass.</p>
+          <a href="contact.html" class="card-cta-btn">Get Quote</a>
+        </div>
+      </div>
+      
+      <!-- 6. Muscle Building -->
+      <div class="program-card reveal reveal-delay-2">
+        <div class="card-img-wrapper">
+          <img src="assets/images/gym-image-3.JPG" alt="Muscle Building" class="card-img" loading="lazy" style="object-position: center 10%;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">MUSCLE BUILDING</h3>
+          <p class="card-desc">Hypertrophy-focused training regimens. Optimize your volume and rest periods to maximize muscle growth, density, and proportions.</p>
+          <a href="tel:+917018290692" class="card-cta">Call Now &rarr;</a>
+        </div>
+      </div>
+      
+      <!-- 7. Functional Training -->
+      <div class="program-card reveal">
+        <div class="card-img-wrapper">
+          <img src="assets/images/gym-image-55.jpg" alt="Functional Training" class="card-img" loading="lazy" style="object-position: center;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">FUNCTIONAL TRAINING</h3>
+          <p class="card-desc">Enhance your agility, balance, and core strength using dynamic movements to train your body for real-world physical activities.</p>
+          <a href="contact.html" class="card-cta-btn">Get Quote</a>
+        </div>
+      </div>
+      
+      <!-- 8. General Fitness -->
+      <div class="program-card reveal reveal-delay-1">
+        <div class="card-img-wrapper">
+          <img src="assets/images/gym-image-14.JPG" alt="General Fitness" class="card-img" loading="lazy" style="object-position: center;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">GENERAL FITNESS</h3>
+          <p class="card-desc">A balanced approach to health. Combine light resistance training, flexibility exercises, and moderate cardio to maintain a highly active lifestyle.</p>
+          <a href="tel:+917018290692" class="card-cta">Call Now &rarr;</a>
+        </div>
+      </div>
+      
+      <!-- 9. Body Transformation -->
+      <div class="program-card reveal reveal-delay-2">
+        <div class="card-img-wrapper">
+          <img src="assets/images/gym-image-1.JPG" alt="Body Transformation" class="card-img" loading="lazy" style="object-position: center 15%;">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">BODY TRANSFORMATION</h3>
+          <p class="card-desc">A complete lifestyle overhaul. Strict nutritional guidance paired with intense, phased training programs to completely rebuild your physique.</p>
+          <a href="contact.html" class="card-cta-btn">Get Quote</a>
+        </div>
+      </div>
+      
     </div>
   </section>
-
-  <!-- More Alternating Rows -->
-  <div style="max-width: 1600px; margin: 0 auto;">
-    
-    <!-- 5 -->
-    <div class="prog-row reverse reveal">
-      <div class="prog-img-wrapper">
-        <img src="assets/images/gym-image-4.JPG" alt="Fat Loss" class="prog-img" loading="lazy" style="object-position: center top;">
-      </div>
-      <div class="prog-content">
-        <span class="prog-number">05</span>
-        <h2 class="heading-lg">FAT<br>LOSS</h2>
-        <p class="text-body mb-3">High-intensity routines and metabolic conditioning designed specifically to burn fat efficiently while preserving lean muscle mass for a toned, athletic appearance.</p>
-        <div>
-          <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- 6 -->
-    <div class="prog-row reveal">
-      <div class="prog-img-wrapper">
-        <img src="assets/images/gym-image-3.JPG" alt="Muscle Building" class="prog-img" loading="lazy" style="object-position: top center;">
-      </div>
-      <div class="prog-content">
-        <span class="prog-number">06</span>
-        <h2 class="heading-lg">MUSCLE<br>BUILDING</h2>
-        <p class="text-body mb-3">Hypertrophy-focused training regimens. Optimize your volume and rest periods to maximize muscle growth, density, and overall aesthetic proportions.</p>
-        <div>
-          <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- 7 & 8 (Editorial Split for last two) -->
-    <div class="section container">
-      <div class="split-layout">
-        <div class="reveal">
-          <span class="prog-number">07</span>
-          <h2 class="heading-md">FUNCTIONAL TRAINING</h2>
-          <p class="text-body mb-3">Enhance your agility, balance, and core strength using dynamic movements and heavy bags to train your body for real-world physical activities.</p>
-          <a href="contact.html" class="btn-link mb-4">Enquire Now &rarr;</a>
-          <div style="height: 300px; margin-top: 30px;">
-            <img src="assets/images/gym-image-55.jpg" alt="Functional Training" class="editorial-img" loading="lazy">
-          </div>
-        </div>
-        
-        <div class="reveal reveal-delay-1" style="margin-top: 60px;">
-          <div style="height: 300px; margin-bottom: 30px;">
-            <img src="assets/images/gym-image-56.jpg" alt="General Fitness" class="editorial-img" loading="lazy">
-          </div>
-          <span class="prog-number">08</span>
-          <h2 class="heading-md">GENERAL FITNESS</h2>
-          <p class="text-body mb-3">A balanced approach to health. Combine light resistance training, flexibility exercises, and moderate cardio to maintain a highly active lifestyle.</p>
-          <a href="contact.html" class="btn-link">Enquire Now &rarr;</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
 
   <!-- Footer -->
   <div id="site-footer"></div>

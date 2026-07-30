@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <title>Contact THE RYAN GYM | Mubarikpur</title>
+  <meta name="description" content="Contact THE RYAN GYM for membership information, training enquiries, timings and directions.">
+  <link rel="canonical" href="https://ryan-gym.vercel.app/contact.html">
+  
+  <meta property="og:title" content="Contact THE RYAN GYM | Mubarikpur">
+  <meta property="og:description" content="Contact THE RYAN GYM for membership information, training enquiries, timings and directions.">
+  <meta property="og:url" content="https://ryan-gym.vercel.app/contact.html">
+  
+  <meta name="twitter:title" content="Contact THE RYAN GYM | Mubarikpur">
+  <meta name="twitter:description" content="Contact THE RYAN GYM for membership information, training enquiries, timings and directions.">
+
+  <!-- Basic Metadata -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | THE RYAN GYM</title>
-  <meta name="description" content="Contact THE RYAN GYM in Mubarikpur. Visit us during our morning or evening hours or submit an enquiry for memberships.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="THE RYAN GYM">
+  
+  <!-- Favicons -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/icons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#0B0B0B">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="THE RYAN GYM">
+  <meta property="og:image" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta property="og:image:secure_url" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="THE RYAN GYM in Mubarikpur, Himachal Pradesh">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ryan-gym.vercel.app/assets/images/the-ryan-gym-social-share.jpg">
+  <meta name="twitter:image:alt" content="THE RYAN GYM in Mubarikpur, Himachal Pradesh">
+
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <style>
+    /* Contact Specific Hero Overrides */
+    #contact-hero {
+      min-height: 420px;
+      padding-top: calc(90px + 45px);
+      padding-bottom: 60px;
+      margin-bottom: 0; /* Remove huge black gap inherited from .page-hero */
+    }
+    #contact-hero .page-hero-overlay {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.98) 100%);
+    }
+    #contact-hero .page-hero-label { margin-bottom: 12px; color: var(--accent-yellow); }
+    #contact-hero .page-hero-heading { font-size: 64px; margin-bottom: 20px; }
+    
+    @media (max-width: 768px) {
+      #contact-hero { min-height: 340px; padding-top: calc(70px + 25px); padding-bottom: 45px; }
+      #contact-hero .page-hero-content { padding-left: 20px; padding-right: 20px; }
+      #contact-hero .page-hero-heading { font-size: 38px; }
+    }
     
     /* Contact Split */
     .contact-split {
@@ -82,9 +135,112 @@
       background-size: 1em;
     }
     
+    /* Contact Section Enhancements */
+    .contact-section-bg {
+      position: relative;
+      overflow: hidden;
+      padding: 50px 0 100px 0; /* Small gap top, standard bottom */
+    }
+    .contact-bg-img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+    .contact-bg-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 2;
+    }
+    .contact-bg-gradient {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.92) 100%);
+      z-index: 3;
+    }
+    
+    /* Decorative aesthetic lines */
+    .contact-lines {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 4;
+      pointer-events: none;
+    }
+    .c-line-v1 {
+      position: absolute;
+      top: 0; left: 15%;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08), transparent);
+    }
+    .c-line-v2 {
+      position: absolute;
+      top: 0; right: 20%;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(210,255,0,0.15), transparent);
+    }
+    .c-line-h1 {
+      position: absolute;
+      top: 35%; left: 0;
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+    }
+    
+    /* Left Panel details */
+    .contact-left-panel {
+      position: relative;
+    }
+    .contact-left-panel::before {
+      content: '';
+      position: absolute;
+      left: -20px; top: 10px;
+      width: 3px;
+      height: 60px;
+      background: var(--accent-yellow);
+      opacity: 0.8;
+    }
+    
+    /* Premium Form Upgrade */
+    .form-wrapper {
+      background-color: rgba(18, 18, 18, 0.94);
+      padding: 60px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(210,255,0,0.25);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      border-radius: 6px;
+      position: relative;
+    }
+    
     @media (max-width: 992px) {
       .contact-split { grid-template-columns: 1fr; gap: 60px; }
       .form-wrapper { padding: 40px 20px; }
+      .contact-left-panel::before { left: -15px; }
+    }
+    @media (max-width: 768px) {
+      .contact-section-bg { padding: 30px 0 60px 0; }
+    }
+    
+    /* Map Section */
+    .map-section {
+      background-color: var(--bg-primary); /* dark charcoal background */
+      border-top: 1px solid rgba(210, 255, 0, 0.4); /* thin yellow line at the top */
+      padding-top: 0;
+    }
+    .map-wrapper {
+      width: 100%;
+      display: block;
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 500px; /* ~500px on desktop */
+      display: block;
+    }
+    @media (max-width: 992px) {
+      .map-wrapper iframe { height: 420px; }
+    }
+    @media (max-width: 768px) {
+      .map-wrapper iframe { height: 360px; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -95,21 +251,36 @@
   <div id="site-header"></div>
 
     <!-- Page Hero -->
-  <section class="page-hero">
-    <img src="assets/images/gym-image-55.jpg" alt="The Ryan Gym" class="page-hero-bg" fetchpriority="high">
+  <section class="page-hero" id="contact-hero">
+    <img src="assets/images/gym-image-34.jpg" alt="The Ryan Gym" class="page-hero-bg" fetchpriority="high">
     <div class="page-hero-overlay"></div>
     <div class="container reveal page-hero-content">
-      <span class="page-hero-label">GET IN TOUCH</span>
-      <h1 class="page-hero-heading">LET'S <span style="color: var(--accent-yellow);">CONNECT</span></h1>
+      <span class="page-hero-label">LET’S CONNECT</span>
+      <h1 class="page-hero-heading">START YOUR<br><span style="color: var(--accent-yellow);">FITNESS JOURNEY</span></h1>
+      <p class="page-hero-desc" style="margin-top: 15px; color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 600px;">Contact THE RYAN GYM for membership details, training programs and general enquiries.</p>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="section" style="padding-top: 40px;">
-    <div class="container contact-split">
+  <section class="section contact-section-bg">
+    <!-- Premium wide background image -->
+    <img src="assets/images/gym-image-60.jpg" alt="Gym Floor Layout" class="contact-bg-img" loading="lazy">
+    
+    <!-- Cinematic black overlays -->
+    <div class="contact-bg-overlay"></div>
+    <div class="contact-bg-gradient"></div>
+    
+    <!-- Aesthetic subtle line details -->
+    <div class="contact-lines">
+      <div class="c-line-v1"></div>
+      <div class="c-line-v2"></div>
+      <div class="c-line-h1"></div>
+    </div>
+    
+    <div class="container contact-split" style="position: relative; z-index: 10;">
       
       <!-- Details -->
-      <div class="contact-details reveal">
+      <div class="contact-details reveal contact-left-panel">
         <h2 class="heading-md">VISIT THE GYM</h2>
         
         <div class="contact-block">
@@ -195,6 +366,20 @@
         </form>
       </div>
       
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="map-wrapper reveal reveal-delay-1">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d779.1319765837014!2d76.08802917366809!3d31.70926001237863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b238f21db18f9%3A0x7fd4aedcfb7fb5cb!2sRyan%20Gym!5e1!3m2!1sen!2sin!4v1785418349333!5m2!1sen!2sin"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="Ryan Gym location in Mubarikpur, Himachal Pradesh">
+      </iframe>
     </div>
   </section>
 
